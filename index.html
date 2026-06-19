@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Sistema Integrador RH → Controle de Acesso
+    </title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>
+            Sistema Integrador RH → Controle de Acesso
+        </h1>
+
+
+        <div class="fluxo">
+
+            Sistema RH
+            →
+            Extração
+            →
+            Validação
+            →
+            Conversão
+            →
+            Integração
+            →
+            Sistema Destino
+
+        </div>
+
+        <input
+            type="file"
+            id="csvFile"
+            accept=".csv">
+
+        <button onclick="processarIntegracao()">
+            Processar Integração
+        </button>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total</h3>
+                <span id="total">0</span>
+            </div>
+
+            <div class="card">
+                <h3>Integrados</h3>
+                <span id="integrados">0</span>
+            </div>
+
+            <div class="card">
+                <h3>Rejeitados</h3>
+                <span id="rejeitados">0</span>
+            </div>
+
+            <div class="card">
+                <h3>Sucesso</h3>
+                <span id="sucesso">0%</span>
+            </div>
+
+            <div class="card">
+                <h3>Sistema Destino</h3>
+                <span id="destino">0</span>
+            </div>
+
+        </div>
+
+        <div
+            class="status"
+            id="status">
+
+            Aguardando processamento...
+
+        </div>
+
+        <h2>
+            Dados Recebidos do Sistema RH
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>E-mail</th>
+                    <th>Cargo</th>
+                    <th>Status</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="tabela"></tbody>
+
+        </table>
+
+        <h2>
+            Erros Encontrados
+        </h2>
+
+        <ul id="erros"></ul>
+
+        <h2>
+            Dados Integrados no Sistema Destino
+        </h2>
+
+        <p>
+            Registros válidos enviados para o Sistema Destino.
+        </p>
+
+        <textarea
+            id="jsonDestino"
+            readonly>
+        </textarea>
+
+        <br>
+
+        <button onclick="baixarJSON()">
+            Baixar JSON Integrado
+        </button>
+
+        <button onclick="baixarRelatorio()">
+            Baixar Relatório
+        </button>
+
+    </div>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
